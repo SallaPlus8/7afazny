@@ -10,11 +10,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     // Route::get('/', 'HomeController@index');
 
-    // Route::get('/', function () {
-    //     return view('dashboard');
-    // });
+    Route::get('/', function () {
+        return view('dashboard');
+    });
     Route::get('/login', function () {
-        return view('auth.login');
+        return view('auth.register');
     });
     // Other routes
 });
