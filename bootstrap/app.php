@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\UserMiddleware;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\TeacherMiddleware;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationMiddlewareBase;
@@ -14,7 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
 
     $middleware->alias([
-        'localization' =>  LaravelLocalizationMiddlewareBase::class,
+    'localization' =>  LaravelLocalizationMiddlewareBase::class,
+    'auth.user' => UserMiddleware::class,
+    'auth.teacher' => \App\Http\Middleware\TeacherMiddleware::class,
+    'auth.admin' => \App\Http\Middleware\AdminMiddleware::class,
+
+
+
     ]);
 
     })

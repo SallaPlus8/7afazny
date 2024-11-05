@@ -6,10 +6,10 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Useriddleware {
+class UserMiddleware {
     public function handle($request, Closure $next) {
         if (!Auth::guard('user')->check()) {
-            return redirect('../../../resources/views/auth/user/login.blade.php');
+            return redirect()->route('user.login');
         }
         return $next($request);
     }

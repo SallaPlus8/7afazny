@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    public function index() {
+        return view('auth.choose');
+    }
+    
     public function redirectToLogin(Request $request)
     {
         $role = $request->input('role');

@@ -30,7 +30,7 @@
                             <h4><i class="fas fa-user-plus"></i> {{ __('teacher_registration') }}</h4>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('teacher.register') }}">
+                            <form method="POST" action="{{ route('teacher.register') }}" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <!-- حقل الاسم -->
@@ -71,6 +71,12 @@
                                         <option value="Both">{{ __('both') }}</option>
                                     </select>
                                 </div>
+
+                                <!-- حقل الصورة الشخصية -->
+                                <div class="form-group">
+                                    <label for="photo">{{ __('photo') }}</label>
+                                    <input id="photo" type="file" class="form-control-file" name="photo" accept="image/*">
+                                </div>
                                 
                                 <!-- حقل كلمة المرور -->
                                 <div class="form-group">
@@ -99,4 +105,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html> 
+</html>

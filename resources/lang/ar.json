@@ -31,5 +31,27 @@
     "Enter your email": "أدخل بريدك الإلكتروني",
     "Enter your password": "أدخل كلمة المرور",
     "Don\\'t have an account?": "ليس لديك حساب؟",
-    "Create a new account": "إنشاء حساب جديد"
+    "Create a new account": "إنشاء حساب جديد",
+
+    "Chat": "الدردشة",
+    "My Students": "طلابي",
+    "Current bookings": "الحجوزات الحالية",
+    "Teachers": "المعلمين",
+    "Quran Memorization": "تحفيظ القرآن",
+    "Arabic Language Teaching": "تعليم اللغة العربية",
+    "Both": "كلاهما",
+    "Current Bookings": "الحجوزات الحالية",
+    "No bookings found": "لم يتم العثور على حجوزات",
+    "View Details": "عرض التفاصيل",
+    "Booking Details": "تفاصيل الحجز",
+    "Comment": "التعليق",
+    "Time": "الوقت",
+    "Start At": "تاريخ البدء",
+    "End At": "تاريخ الانتهاء",
+    "Confirmed": "مؤكد",
+    "Yes": "نعم",
+    "No": "لا",
+    "Confirm": "تأكيد",
+    "Delete": "حذف",
+    "Close": "إغلاق"
 }

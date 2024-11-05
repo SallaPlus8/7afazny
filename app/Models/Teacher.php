@@ -18,6 +18,7 @@ class Teacher extends Authenticatable
         'available',
         'topic',
         'password',
+        'photo'
     ];
 
     public function certifications()

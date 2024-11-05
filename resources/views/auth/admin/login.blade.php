@@ -35,7 +35,7 @@
                             <!-- يمكن تخصيص هذه الفقرة لتحديد نوع المستخدم (مثال: admin, teacher, user) -->
                             <p class="text-center font-weight-bold text-secondary">تسجيل الدخول كـ: admin</p>
                             
-                            <form method="POST" action="/* استبدل هذا بمسار تسجيل الدخول المناسب */">
+                            <form method="POST" action={{ route('admin.login') }}>
                                 @csrf
                                 <div class="form-group">
                                     <label for="email">البريد الإلكتروني</label>

@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 class TeacherMiddleware {
     public function handle($request, Closure $next) {
         if (!Auth::guard('teacher')->check()) {
-            return redirect('../../../resources/views/auth/teacher/login.blade.php');
-        }
+            return redirect()->route('teacher.login');
+                }
         return $next($request);
     }
 }

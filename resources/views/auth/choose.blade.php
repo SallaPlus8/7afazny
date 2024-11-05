@@ -31,7 +31,7 @@
                             <h4><i class="fas fa-user-circle"></i> اختر نوع الدخول</h4>
                         </div>
                         <div class="card-body text-center">
-                            <form method="POST" action="{{ route('redirect.login') }}">
+                            <form method="POST" action="{{ route('choose-role') }}">
                                 @csrf
                                 <div class="form-group">
                                     <select id="role" class="form-control" name="role" required>
