@@ -13,7 +13,7 @@
         {{ url('/') }} <!-- أو رابط الصفحة الرئيسية كخيار افتراضي -->
     @endif
 ">
-    <img src="{{ asset('assets/images/logo-dark.png') }}" alt="Logo">
+<img src="{{ asset('assets/images/360_F_269645677_oAjFKkNrezyIeJ6TmawcwEmERIXlQgi5.jpg') }}" alt="Logo" style="width: 100px; height: 50px;">
 </a>
 
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-icon-dark.png" alt=""></a>
@@ -37,15 +37,26 @@
     </ul>
 
     <!-- Language Switcher -->
-    <ul>
-        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <li>
-                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
-                    {{ $properties['name'] }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
+   <!-- Language Selector -->
+<!-- Language Selector with Icons -->
+<div class="btn-group mt-3" role="group" aria-label="Language selector">
+    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        <a class="btn btn-light {{ app()->getLocale() == $localeCode ? 'active' : '' }}" 
+           rel="alternate" 
+           hreflang="{{ $localeCode }}" 
+           href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+            @if($localeCode == 'en')
+                <i class="fas fa-flag-usa"></i> <!-- Replace with a suitable icon for English -->
+            @elseif($localeCode == 'ar')
+                <i class="fas fa-flag"></i> <!-- Replace with a suitable icon for Arabic -->
+            @elseif($localeCode == 'fr')
+                <i class="fas fa-flag-france"></i> <!-- Replace with a suitable icon for French -->
+            @endif
+            <span class="sr-only">{{ $properties['name'] }}</span> <!-- Accessibility text -->
+        </a>
+    @endforeach
+</div>
+
 
     <!-- Top bar right -->
     <ul class="nav navbar-nav ml-auto">

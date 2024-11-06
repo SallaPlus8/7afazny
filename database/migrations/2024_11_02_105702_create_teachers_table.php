@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->string('timezone')->nullable();
             $table->boolean('available')->default(true);
-            $table->enum('topic', ['Quran ', ' Lang Teacher', 'Both'])->nullable();
+            $table->enum('topic', ['Quran ', 'Lang Teacher', 'Both'])->nullable();
             $table->string('password');
             $table->timestamps();
         });

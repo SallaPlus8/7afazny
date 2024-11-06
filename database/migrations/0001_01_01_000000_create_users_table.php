@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-<<<<<<< HEAD
-=======
             $table->string('phone');
             $table->enum('gender', ['male', 'female']);
             $table->string('timezone')->nullable();
->>>>>>> b6cb7f5393811e80e8580f07dd60b0b0fea2bde0
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

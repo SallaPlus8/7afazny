@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 
 
 use App\Models\Order;
+use App\Models\TeacherUser;
 use Illuminate\Http\Request;
 use App\Models\CurrentBooking;
 use App\Http\Controllers\Controller;
@@ -38,13 +39,32 @@ class CurrentBookingController extends Controller
 
     public function confirm($id)
     {
+        // العثور على الحجز
         $booking = Order::findOrFail($id);
+    
+        // تأكيد الحجز
         $booking->confirm = 1;
         $booking->save();
     
+        // جلب المعرفات الخاصة بالمعلم والطالب من الحجز
+        $teacherId = $booking->teacher_id;
+        $userId = $booking->user_id;
+    
+        // التحقق من عدم وجود السجل مسبقًا في جدول الربط
+        $exists = TeacherUser::where('teacher_id', $teacherId)
+                             ->where('user_id', $userId)
+                             ->exists();
+    
+        // إذا لم يكن موجودًا، يتم إضافته
+        if (!$exists) {
+            TeacherUser::create([
+                'teacher_id' => $teacherId,
+                'user_id' => $userId,
+            ]);
+        }
+    
         return redirect()->route('current_bookings.index')->with('status', __('Booking confirmed successfully.'));
     }
-    
     // حذف حجز
     public function destroy($id)
     {

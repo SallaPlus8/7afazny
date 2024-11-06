@@ -19,6 +19,14 @@
                         </a>
                     </li>
                     @endauth
+
+                    @auth('teacher')
+                    <li>
+                        <a href={{route('teacher.feedback')}}>
+                            <i class="ti-star"></i></i><span class="right-nav-text">{{ __('Feedback') }}</span>
+                        </a>
+                    </li>
+                    @endauth
                     <!-- فقط للمستخدمين المتحقق منهم عبر جارد "user" -->
                     @auth('teacher')
                         <li>
@@ -68,24 +76,30 @@
                         </a>
                         <ul id="teachers-menu" class="collapse" data-parent="#sidebarnav">
                             <li>
-                                <a href="quran-teachers.html">{{ __('Quran Memorization') }}</a>
+                                <a href={{route('quran.teacher.index')}}>{{ __('Quran Memorization') }}</a>
                             </li>
                             <li>
-                                <a href="arabic-teachers.html">{{ __('Arabic Language Teaching') }}</a>
+                                <a href={{route('arabic.teacher.index')}}>{{ __('Arabic Language Teaching') }}</a>
                             </li>
                             <li>
-                                <a href="both-teachers.html">{{ __('Both') }}</a>
+                                <a href={{route('teacher.index')}}>{{ __('Both') }}</a>
                             </li>
                         </ul>
                     </li>
                     @auth('admin')
                     <li>
-                        <a href={{route('students.index')}}>
-                            <i class="ti-user"></i><span class="right-nav-text">{{ __(' Students') }}</span>
+                        <a href={{route('admin.students.index')}}>
+                            <i class="ti-user"></i><span class="right-nav-text">{{ __('Students') }}</span>
                         </a>
                     </li>
                     @endauth
-
+                    @auth('admin')
+                    <li>
+                        <a href={{route('admin.current_bookings.index')}}>
+                            <i class="ti-calendar"></i><span class="right-nav-text">{{ __('Booking') }}</span>
+                        </a>
+                    </li>
+                    @endauth
                 @endauth
                     
                 </ul>

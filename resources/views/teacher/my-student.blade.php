@@ -41,9 +41,8 @@
                                      alt="{{ $student->name }}" 
                                      class="rounded-circle img-fluid mb-3" 
                                      style="width: 200px; height: 200px; object-fit: cover;">
-                                <p><strong>{{ __('Age') }}:</strong> {{ $student->age }}</p>
-                                <p><strong>{{ __('Level') }}:</strong> {{ $student->level }}</p>
-                                <p><strong>{{ __('Description') }}:</strong> {{ $student->description ?? __('No description available') }}</p>
+                                <p><strong>{{ __('Gender') }}:</strong> {{ $student->gender }}</p>
+                                <p><strong>{{ __('Email') }}:</strong> {{ $student->email ?? __('No description available') }}</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>

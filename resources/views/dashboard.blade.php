@@ -8,6 +8,8 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     @include('layouts.head')
 </head>
 
@@ -52,12 +54,23 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-danger">
-                                        <i class="fa fa-bar-chart-o highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-users highlight-icon" aria-hidden="true"></i> <!-- أيقونة تعبر عن عدد الطلاب -->
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Visitors</p>
+                                    @auth('teacher')
+                                   <p class="card-text text-dark">{{__('My student')}}</p>
+                                   <h4>{{$countMyStudents}}</h4>
+                                </h4>
+
+                                    @endauth
+                                    @auth('user')
+                                    <p class="card-text text-dark">{{__('My teacher')}}</p>
                                     <h4>65,650</h4>
+
+                                    @endauth
+
+
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -73,12 +86,18 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <span class="text-warning">
-                                        <i class="fa fa-shopping-cart highlight-icon" aria-hidden="true"></i>
+                                        <i class="fa fa-pencil-alt fa-2x" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Orders</p>
-                                    <h4>656</h4>
+                                    @auth('teacher')
+                                    <p class="card-text text-dark">{{__('Orders')}}</p>
+                                    <h4>{{$countMyOreder}}</h4>
+                                    @endauth
+                                    @auth('user')
+                                    <p class="card-text text-dark">{{__('Orders')}}</p>
+                                    <h4>{{$countMyOreder}}</h4>
+                                    @endauth
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">

@@ -48,4 +48,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'teacher_user', 'user_id', 'teacher_id')
+                    ->withPivot('created_at', 'updated_at');
+    }
+    
+
+
 }
